@@ -1,0 +1,52 @@
+
+import "./App.css";
+import "./index.css";
+import AppRouter from "./routes/AppRouter";
+import { Toaster } from "react-hot-toast";
+import { AuthProvider } from "./utils/idb.jsx";
+import { Tooltip } from "react-tooltip";
+
+
+
+function App() {
+  return (
+    <>
+      <div
+        className="relative before:absolute before:top-0 before:left-0 before:w-full
+     before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
+     before:bg-[url('https://www.ui-layouts.com/noise.gif')]"
+      >
+
+        <AuthProvider>
+          <AppRouter />
+        </AuthProvider>
+        <Tooltip id="my-tooltip" />
+        <Toaster
+          position="bottom-left"
+          reverseOrder={false}
+          toastOptions={{
+            // Define default options
+            className: "border",
+            duration: 3000,
+            removeDelay: 500,
+            style: {
+              background: "#161616FF",
+              color: "#fff",
+            },
+
+            // Default options for specific types
+            success: {
+              duration: 3000,
+              iconTheme: {
+                primary: "green",
+                secondary: "black",
+              },
+            },
+          }}
+        />
+      </div>
+    </>
+  );
+}
+
+export default App;
