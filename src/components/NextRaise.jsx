@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import niclasImg from '../assets/niclas.png';
-import { 
-    Calendar, 
-    Clock, 
-    Video, 
-    Globe, 
-    CheckSquare, 
-    ChevronLeft, 
-    ChevronRight, 
-    LayoutGrid, 
-    List 
+import niclasImg from '../assets/jigar.jpeg';
+import {
+    Calendar,
+    Clock,
+    Video,
+    Globe,
+    CheckSquare,
+    ChevronLeft,
+    ChevronRight,
+    LayoutGrid,
+    List
 } from 'lucide-react';
 
 const NextRaise = () => {
@@ -31,7 +31,7 @@ const NextRaise = () => {
     return (
         <section className="relative w-full bg-black text-white py-24 flex flex-col justify-between overflow-hidden">
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12">
-                
+
                 {/* Full Width Screen Border */}
                 <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-white/10 mb-16"></div>
 
@@ -45,30 +45,30 @@ const NextRaise = () => {
 
                         <div className="space-y-8 flex-grow">
                             <div>
-                                <span className="text-sm font-bold block mb-2">[01]</span>
+                                <span className="text-sm font-bold block mb-2 text-brand-yellow drop-shadow-[0_0_8px_rgba(234,255,0,0.5)]">[01]</span>
                                 <p className="text-white/80">Either book a call or a send message.</p>
                             </div>
                             <div>
-                                <span className="text-sm font-bold block mb-2">[02]</span>
+                                <span className="text-sm font-bold block mb-2 text-brand-yellow drop-shadow-[0_0_8px_rgba(234,255,0,0.5)]">[02]</span>
                                 <p className="text-white/80">Share your project details.</p>
                             </div>
                             <div>
-                                <span className="text-sm font-bold block mb-2">[03]</span>
+                                <span className="text-sm font-bold block mb-2 text-brand-yellow drop-shadow-[0_0_8px_rgba(234,255,0,0.5)]">[03]</span>
                                 <p className="text-white/80">We'll reply <span className="font-bold text-white">within 14 hours.</span></p>
                             </div>
                         </div>
 
                         <div className="mt-16 pt-8 max-w-sm">
                             <div className="flex items-start gap-4 mb-6">
-                                <span className="text-brand-yellow text-4xl font-serif leading-none">"</span>
+                                <span className="text-brand-yellow text-4xl font-serif leading-none drop-shadow-[0_0_15px_rgba(234,255,0,0.8)]">"</span>
                                 <p className="text-white text-lg font-medium leading-snug">
                                     I personally review every engagement to ensure we can add real value before we start.
                                 </p>
                             </div>
                             <div className="flex items-center gap-4">
-                                <img src={niclasImg} alt="Niclas Schlopsna" className="w-12 h-12 rounded-full object-cover grayscale" />
+                                <img src={niclasImg} alt="Jigar Patel" className="w-12 h-12 rounded-full object-cover grayscale" />
                                 <div>
-                                    <h4 className="text-white font-bold text-sm">Niclas Schlopsna</h4>
+                                    <h4 className="text-white font-bold text-sm">Jigar Patel</h4>
                                     <p className="text-white/50 text-xs">Managing Partner</p>
                                 </div>
                             </div>
@@ -77,16 +77,16 @@ const NextRaise = () => {
 
                     {/* Right Column */}
                     <div className="w-full lg:w-2/3 flex flex-col items-start lg:items-end">
-                        
+
                         {/* Tabs */}
                         <div className="flex border border-white/10 rounded overflow-hidden mb-6">
-                            <button 
+                            <button
                                 onClick={() => setActiveTab('book')}
                                 className={`px-6 py-2 text-sm font-medium transition-colors ${activeTab === 'book' ? 'bg-white text-black' : 'bg-black text-white hover:bg-white/5'}`}
                             >
                                 Book call
                             </button>
-                            <button 
+                            <button
                                 onClick={() => setActiveTab('message')}
                                 className={`px-6 py-2 text-sm font-medium border-l border-white/10 transition-colors ${activeTab === 'message' ? 'bg-white text-black' : 'bg-black text-white hover:bg-white/5'}`}
                             >
@@ -95,14 +95,14 @@ const NextRaise = () => {
                         </div>
 
                         {/* Booking UI Mockup */}
-                        <div className="w-full bg-[#111111] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 shadow-2xl overflow-hidden relative">
-                            
+                        <div className="w-full bg-[#111111] border border-brand-yellow/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-8 shadow-[0_0_20px_rgba(234,255,0,0.15)] hover:shadow-[0_0_30px_rgba(234,255,0,0.3)] transition-shadow duration-500 overflow-hidden relative">
+
                             {/* Calendar Left Sidebar */}
                             <div className="w-full md:w-1/3 flex flex-col relative z-10 border-b md:border-b-0 md:border-r border-white/10 pb-6 md:pb-0 md:pr-6">
-                                <img src={niclasImg} alt="Niclas" className="w-10 h-10 rounded-full object-cover mb-4" />
-                                <p className="text-white/60 text-sm mb-1">Niclas Schlopsna</p>
+                                <img src={niclasImg} alt="Jigar Patel" className="w-10 h-10 rounded-full object-cover mb-4" />
+                                <p className="text-white/60 text-sm mb-1">Jigar Patel</p>
                                 <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">20-Minutes Call</h3>
-                                
+
                                 <div className="space-y-4 text-sm text-white/70">
                                     <div className="flex items-center gap-3">
                                         <CheckSquare size={16} />
@@ -125,7 +125,7 @@ const NextRaise = () => {
 
                             {/* Calendar Right Area */}
                             <div className="w-full md:w-2/3 flex flex-col relative z-10">
-                                
+
                                 <div className="flex items-center justify-between mb-8">
                                     <div className="flex items-center gap-4">
                                         <h4 className="font-semibold text-lg text-white">March 2026</h4>
@@ -157,11 +157,11 @@ const NextRaise = () => {
                                                     {week.map((day, dayIndex) => (
                                                         <div key={`${weekIndex}-${dayIndex}`} className="flex justify-center mb-2">
                                                             {day ? (
-                                                                <button 
+                                                                <button
                                                                     className={`w-10 h-10 flex flex-col items-center justify-center rounded-lg text-sm transition-all
-                                                                        ${day === 16 ? 'bg-white text-black font-bold' : 
-                                                                          [17, 18, 19, 23, 24, 25, 26, 30, 31].includes(day) ? 'bg-white/10 text-white font-medium hover:bg-white/20' : 
-                                                                          'text-white/40 hover:bg-white/5 hover:text-white'}`}
+                                                                        ${day === 16 ? 'bg-brand-yellow text-black font-bold shadow-[0_0_15px_rgba(234,255,0,0.4)]' :
+                                                                            [17, 18, 19, 23, 24, 25, 26, 30, 31].includes(day) ? 'bg-white/10 text-white font-medium hover:bg-white/20' :
+                                                                                'text-white/40 hover:bg-white/5 hover:text-white'}`}
                                                                 >
                                                                     {day}
                                                                     {day === 14 && <div className="w-1 h-1 bg-white/50 rounded-full mt-0.5" />}
@@ -184,7 +184,7 @@ const NextRaise = () => {
                                         </div>
                                         <div className="flex flex-col gap-2 max-h-[320px] overflow-y-auto pr-2 custom-scrollbar">
                                             {timeSlots.map(time => (
-                                                <button key={time} className="w-full border border-white/20 rounded-md py-2.5 text-center text-sm font-medium hover:border-white/50 hover:bg-white/5 transition-all text-white/80">
+                                                <button key={time} className="w-full border border-white/20 rounded-md py-2.5 text-center text-sm font-medium hover:border-brand-yellow/80 hover:bg-brand-yellow/10 hover:text-brand-yellow hover:shadow-[0_0_15px_rgba(234,255,0,0.3)] transition-all text-white/80">
                                                     {time}
                                                 </button>
                                             ))}

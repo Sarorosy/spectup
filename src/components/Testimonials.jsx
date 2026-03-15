@@ -9,7 +9,7 @@ import three from '../assets/3.jpg';
 
 const testimonials = [
   {
-    quote: "The collaboration with spectup on our Series D was seamless. Niclas's team listened closely, sharpened our story, and delivered materials that set us apart in the market, contributing to a $40M raise and positioning us well for the next round.",
+    quote: "The collaboration with Shine Investo on our Series D was seamless. Jigar Patel's team listened closely, sharpened our story, and delivered materials that set us apart in the market, contributing to a $40M raise and positioning us well for the next round.",
     author: "Tim Sovay",
     role: "Chief BD & Partnerships Officer",
     company: "CreatorIQ",
@@ -49,7 +49,7 @@ const testimonials = [
     ]
   },
   {
-    quote: "With spectup’s support, we clarified our narrative, built investor‑ready materials, and accessed top‑tier, highly selective funds. One of those investors led our $2.5M seed round.",
+    quote: "With Shine investo's support, we clarified our narrative, built investor‑ready materials, and accessed top‑tier, highly selective funds. One of those investors led our $2.5M seed round.",
     author: "Founder",
     role: "CEO",
     company: "VOTECLASH",
@@ -89,7 +89,7 @@ const testimonials = [
     ]
   },
   {
-    quote: "Spectup made our fundraising process far more efficient and connected us with investors we would never have reached alone. The outreach generated 87+ VC meetings and saved me countless hours of unqualified calls.",
+    quote: "Shine Investo made our fundraising process far more efficient and connected us with investors we would never have reached alone. The outreach generated 87+ VC meetings and saved me countless hours of unqualified calls.",
     author: "Leadership Team",
     role: "Founders",
     company: "Pop",
@@ -140,7 +140,7 @@ const extraCardsData = [
         <span className="font-bold text-white tracking-tight">enhanced.io</span>
       </div>
     ),
-    quote: "spectup has been a genuine asset to our fundraising journey. Their support generated 56+ investor calls and 7 warm intros, and I'd recommend their capital advisory to any founder or leadership team looking for expert guidance.",
+    quote: "Shine Investo has been a genuine asset to our fundraising journey. Their support generated 56+ investor calls and 7 warm intros, and I'd recommend their capital advisory to any founder or leadership team looking for expert guidance.",
     stats: [
       { value: "56+", label: "Investor Calls Generated" },
       { value: "7", label: "Warm Intros Provided" }
@@ -176,7 +176,7 @@ const extraCardsData = [
         <span className="text-[0.5rem] tracking-[0.2em] text-white/80 uppercase ml-1">International</span>
       </div>
     ),
-    quote: "Niclas and his team built our funding deck alongside us, making sure the platform was represented clearly and concisely. They delivered 19 high-quality slides backed by 31+ hours of market research. Quick, efficient, and on point.",
+    quote: "Jigar Patel and his team built our funding deck alongside us, making sure the platform was represented clearly and concisely. They delivered 19 high-quality slides backed by 31+ hours of market research. Quick, efficient, and on point.",
     stats: [
       { value: "19", label: "High-Quality Slides Created" },
       { value: "31+", label: "Hours Spend on Market Research" }
@@ -221,10 +221,10 @@ const Testimonials = () => {
           <div className="md:col-span-8 lg:col-span-8 p-6 md:p-8 lg:p-12">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tighter leading-tight mb-6">
-                What founders and leaders say about working with spectup
+                What founders and leaders say about working with Shine Investo
               </h2>
               <p className="text-sm md:text-base text-[#C1FF00]/70 leading-relaxed max-w-lg">
-                <span className="text-white/50">These people worked with spectup on their capital raising projects. Their words and results show what our approach can deliver.</span>
+                <span className="text-white/50">These people worked with Shine Investo on their capital raising projects. Their words and results show what our approach can deliver.</span>
               </p>
             </div>
           </div>
@@ -262,8 +262,8 @@ const Testimonials = () => {
 
                       {/* Right Panel - Quote */}
                       <div className="md:col-span-8 lg:col-span-8 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative">
-                         <div className="text-[#C1FF00] text-6xl font-serif mb-4 leading-none font-bold">"</div>
-                         <p className="text-2xl md:text-3xl lg:text-[2rem] font-medium leading-[1.3] tracking-tight mb-12 max-w-3xl text-white/90">
+                         <div className="text-[#C1FF00] text-6xl font-serif mb-4 leading-none font-bold drop-shadow-[0_0_12px_rgba(193,255,0,0.5)]">"</div>
+                         <p className="text-2xl md:text-3xl lg:text-[2rem] font-medium leading-[1.3] tracking-tight mb-12 max-w-3xl text-white/90 min-h-[320px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[240px]">
                            {testimonials[currentIndex].quote}
                          </p>
                          
@@ -271,15 +271,15 @@ const Testimonials = () => {
                          <div className="flex gap-4 mt-6">
                            <button 
                              onClick={handlePrev}
-                             className="w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                             className="w-10 h-10 border neon-button flex items-center justify-center bg-[#C1FF00]/10 border-[#C1FF00]/50 hover:text-black shadow-[0_0_15px_rgba(193,255,0,0.2)] transition-all duration-300 group"
                            >
-                             <ArrowLeft className="w-4 h-4" />
+                             <ArrowLeft className="w-4 h-4 drop-shadow-[0_0_8px_rgba(193,255,0,0.6)]  transition-colors" />
                            </button>
                            <button 
                              onClick={handleNext}
-                             className="w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-white/10 transition-colors"
+                             className="w-10 h-10 border neon-button flex items-center justify-center bg-[#C1FF00]/10 border-[#C1FF00]/50 hover:text-black shadow-[0_0_15px_rgba(193,255,0,0.2)] transition-all duration-300 group"
                            >
-                             <ArrowRight className="w-4 h-4" />
+                             <ArrowRight className="w-4 h-4 drop-shadow-[0_0_8px_rgba(193,255,0,0.6)]  transition-colors" />
                            </button>
                          </div>
                       </div>
@@ -288,7 +288,7 @@ const Testimonials = () => {
             </AnimatePresence>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-1 md:grid-cols-3">
+            <div className="grid grid-cols-3">
               {[
                 testimonials[currentIndex].stats.find(s => s.label === "Raised in their Series D"),
                 testimonials[currentIndex].stats.find(s => s.label === "Seed Round"),
@@ -312,21 +312,21 @@ const Testimonials = () => {
         <div className="m-5 grid grid-cols-1 md:grid-cols-3 border border-white/10 ">
         
           {extraCardsData.map((card, idx) => (
-            <div key={idx} className={`p-8 lg:p-10 border-b md:border-b-0 ${idx < 2 ? 'md:border-r' : ''} border-white/10 flex flex-col`}>
+            <div key={idx} className={`p-8 lg:p-10 border-b neon-border md:border-b-0 ${idx < 2 ? 'md:border-r' : ''} border-white/10 flex flex-col`}>
               <div className="h-10 mb-6 flex items-center">
                 {card.logo}
               </div>
               
               <div className="flex gap-4 mb-6 relative flex-1">
-                <div className="text-[#C1FF00] font-serif text-3xl font-bold mt-1 leading-none">"</div>
+                <div className="text-[#C1FF00] font-serif text-3xl font-bold mt-1 leading-none drop-shadow-[0_0_8px_rgba(193,255,0,0.4)]">"</div>
                 <p className="text-white/80 text-base md:text-sm lg:text-base leading-relaxed tracking-wide">
                   {card.quote}
                 </p>
               </div>
               
               <div className="flex justify-end mb-8 mt-auto pt-4">
-                <a href="#" className="text-white text-[13px] font-semibold flex items-center gap-2 hover:text-white/80 transition-colors">
-                  Read case study <ArrowUpRight className="w-4 h-4 text-[#C1FF00]" />
+                <a href="#" className="text-white text-[13px] font-semibold flex items-center gap-2 hover:text-[#C1FF00] transition-colors duration-300 group">
+                  Read case study <ArrowUpRight className="w-4 h-4 text-[#C1FF00] group-hover:drop-shadow-[0_0_8px_rgba(193,255,0,0.6)] transition-all" />
                 </a>
               </div>
               

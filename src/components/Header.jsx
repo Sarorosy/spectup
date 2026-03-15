@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { ChevronUp, X, ArrowUpRight, Linkedin, Youtube, Instagram } from "lucide-react";
+import {  X, ArrowUpRight, Linkedin, Youtube, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import spotifyLogo from '../assets/spotify.avif';
+import spotifyLogo from '../assets/spotify.png';
 
 export default function Header() {
   const [time, setTime] = useState(new Date());
@@ -31,13 +31,13 @@ export default function Header() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex items-center justify-between text-white mix-blend-difference">
+      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-[90%] z-50 px-6 py-4 flex items-center justify-between text-white ">
         {/* Logo */}
         <div className="flex items-center gap-2 cursor-pointer group">
-          <div className="bg-brand-yellow p-0.5 rounded-sm transition-transform group-hover:scale-110">
-            <ChevronUp size={14} className="text-black stroke-[3]" />
+          <div className=" p-0.5 rounded-sm transition-transform group-hover:scale-110">
+            <img src="/spectup.svg" alt="logo" className="opacity-100 h-12" />
           </div>
-          <span className="font-bold text-xl tracking-tight">spectup</span>
+          <span className="font-bold text-xl tracking-tight">Shine Investo</span>
         </div>
 
         {/* Center - Location & Time */}
@@ -145,8 +145,8 @@ export default function Header() {
               <div className="px-8 lg:px-24 py-8 lg:py-12 border-t border-white/10 flex flex-col md:flex-row gap-12 justify-between items-start md:items-end flex-shrink-0">
                 <div className="w-full max-w-[280px]">
                   <p className="text-[11px] text-white/50 mb-3 tracking-wide">Let's Talk</p>
-                  <a href="mailto:hi@spectup.com" className="text-xl lg:text-[26px] font-bold tracking-tight flex items-center justify-between pb-3 border-b border-white/20 group hover:border-white transition-colors">
-                    <span>hi@spectup.com</span>
+                  <a href="mailto:hi@shineinvesto.com" className="text-xl lg:text-[26px] font-bold tracking-tight flex items-center justify-between pb-3 border-b border-white/20 group hover:border-white transition-colors">
+                    <span>hi@shineinvesto.com</span>
                     <span className="text-white/50 group-hover:text-white transition-colors font-light">+</span>
                   </a>
                   <p className="mt-5 text-[12px] font-medium tracking-wide">
@@ -179,7 +179,7 @@ export default function Header() {
                     Terms of Service <ArrowUpRight size={10} strokeWidth={3} className="text-brand-yellow" />
                   </a>
                 </div>
-                <p className="w-full md:w-auto text-center md:text-right">© 2026 spectup® All rights reserved.</p>
+                <p className="w-full md:w-auto text-center md:text-right">© 2026 shine investo All rights reserved.</p>
               </div>
             </div>
           </motion.div>

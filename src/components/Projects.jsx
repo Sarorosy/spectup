@@ -51,7 +51,7 @@ const Projects = () => {
         {/* Top Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 shrink-0 border-b border-white/10">
           <div className="md:col-span-4 lg:col-span-3 p-6 md:p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10">
-            <span className="text-sm font-bold tracking-wide block">
+            <span className="neon-text text-sm font-bold tracking-wide block">
               [04] Projects
             </span>
           </div>
@@ -68,7 +68,7 @@ const Projects = () => {
             </div>
 
             <div className="lg:absolute lg:right-12 lg:top-12 flex items-start">
-              <button className="flex items-center gap-2 text-sm font-bold tracking-wide hover:opacity-70 transition-opacity">
+              <button className="neon-text flex items-center gap-2 text-sm font-bold tracking-wide hover:opacity-70 transition-opacity">
                 [13] All Capital Raising Projects <ArrowUpRight className="w-4 h-4 text-[#C1FF00]" />
               </button>
             </div>
@@ -90,7 +90,7 @@ const Projects = () => {
                 className="flex flex-col h-full"
               >
                 <div className="flex-1 p-6 md:p-8 lg:p-12">
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 neon-text">
                     {projects[currentIndex].title}
                   </h3>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed mb-12 max-w-md">
@@ -119,11 +119,11 @@ const Projects = () => {
 
                     <div className="grid grid-cols-2 py-8 border-b border-white/10 gap-8">
                       <div>
-                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap">{projects[currentIndex].stat1.value}</div>
+                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap neon-text">{projects[currentIndex].stat1.value}</div>
                         <div className="text-xs text-white/50">{projects[currentIndex].stat1.label}</div>
                       </div>
                       <div>
-                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap">{projects[currentIndex].stat2.value}</div>
+                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap neon-text">{projects[currentIndex].stat2.value}</div>
                         <div className="text-xs text-white/50">{projects[currentIndex].stat2.label}</div>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ const Projects = () => {
             </AnimatePresence>
 
             <div className="mt-8">
-              <button className="text-xs font-bold tracking-wider uppercase bg-white text-black py-2 px-8 w-full hover:bg-white/90 transition-colors">
+              <button className="neon-text border border-brand-yellow text-xs font-bold tracking-wider uppercase py-3 px-8 w-full">
                 VIEW CASE STUDY
               </button>
             </div>
@@ -162,24 +162,24 @@ const Projects = () => {
             <div className="absolute top-6 right-6 flex gap-2 z-20">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:bg-black/80 transition-colors group"
+                className="w-10 h-10 bg-black/50 backdrop-blur-sm flex items-center justify-center neon-button group"
               >
-                <ArrowLeft className="w-5 h-5 text-white/70 group-hover:text-white" />
+                <ArrowLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
-                className="w-10 h-10 bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:bg-black/80 transition-colors group"
+                className="w-10 h-10 bg-black/50 backdrop-blur-sm flex items-center justify-center neon-button group"
               >
-                <ArrowRight className="w-5 h-5 text-white/70 group-hover:text-white" />
+                <ArrowRight className="w-5 h-5" />
               </button>
             </div>
 
             {/* Dots */}
-            <div className="absolute bottom-6 right-6 flex gap-2 z-20">
+            <div className="absolute bottom-6 right-6 flex gap-2 z-20 items-center">
               {projects.map((_, idx) => (
                 <div
                   key={idx}
-                  className={`w-1.5 h-1.5 transition-colors ${idx === currentIndex ? 'bg-white' : 'bg-white/30'}`}
+                  className={`transition-all  ${idx === currentIndex ? 'w-2 h-2 glow-dot' : 'w-1.5 h-1.5 bg-white/30'}`}
                 />
               ))}
             </div>

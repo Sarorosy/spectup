@@ -5,9 +5,10 @@ export default function PrivateRoute() {
   const { user, loading } = useAuth();
 
   // While loading, show spinner or loader
-  if (loading) return <div className="text-center p-10">Loading...</div>;
+  // if (loading) return <div className="text-center p-10">Loading...</div>;
 
 
   // Regular auth check
-  return user ? <Outlet /> : <Outlet />;
+  // return user ? <Outlet /> : <Outlet />;
+  return <Outlet />;
 }

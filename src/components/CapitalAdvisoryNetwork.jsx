@@ -41,7 +41,7 @@ const CapitalAdvisoryNetwork = () => {
                 {/* Header section */}
                 <div className="flex flex-col md:flex-row mb-16 gap-4 md:gap-8">
                     <div className="md:w-1/4">
-                        <span className="text-xs md:text-sm font-semibold text-white/50 tracking-wider">
+                        <span className="neon-text text-xs md:text-sm font-semibold text-white/50 tracking-wider">
                             &copy; 2022 - 2025
                         </span>
                     </div>
@@ -57,7 +57,7 @@ const CapitalAdvisoryNetwork = () => {
                 </div>
 
                 {/* Grid Network */}
-                <div className="w-full bg-white/10 p-[1px] grid grid-cols-2 lg:grid-cols-4 gap-[1px]">
+                <div className="neon-border w-full bg-white/10 p-[1px] grid grid-cols-2 lg:grid-cols-4 gap-[1px]">
                     
                     {/* Row 1: 4 Logo cells */}
                     {[0, 1, 2, 3].map(i => (

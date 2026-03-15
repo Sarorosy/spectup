@@ -64,3 +64,103 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+/* Neon Glow Utilities (Brand Colors) */
+@layer utilities {
+    /* Soft glowing text with the brand color */
+    .glow-text {
+        color: var(--color-brand-yellow);
+        text-shadow: 0 0 12px rgba(170, 255, 0, 0.4), 0 0 24px rgba(170, 255, 0, 0.2);
+    }
+
+    /* Subtle ambient border glow for cards/boxes/containers */
+    .glow-border {
+        border: 1px solid rgba(170, 255, 0, 0.2);
+        box-shadow: 0 0 16px rgba(170, 255, 0, 0.05), inset 0 0 16px rgba(170, 255, 0, 0.05);
+        transition: all 0.3s ease;
+    }
+    .glow-border:hover {
+        border-color: rgba(170, 255, 0, 0.4);
+        box-shadow: 0 0 24px rgba(170, 255, 0, 0.1), inset 0 0 16px rgba(170, 255, 0, 0.08);
+    }
+
+    /* Glowing button outline (for pill buttons, secondary buttons) */
+    .glow-btn-outline {
+        border: 1px solid rgba(170, 255, 0, 0.6);
+        color: var(--color-brand-yellow);
+        box-shadow: 0 0 12px rgba(170, 255, 0, 0.15), inset 0 0 8px rgba(170, 255, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+    .glow-btn-outline:hover {
+        box-shadow: 0 0 20px rgba(170, 255, 0, 0.3), inset 0 0 12px rgba(170, 255, 0, 0.2);
+        text-shadow: 0 0 8px rgba(170, 255, 0, 0.4);
+        border-color: rgba(170, 255, 0, 0.8);
+    }
+
+    /* Solid glowing button (for primary call to actions) */
+    .glow-btn-solid {
+        background-color: var(--color-brand-yellow);
+        color: #000;
+        box-shadow: 0 0 20px rgba(170, 255, 0, 0.3);
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
+    .glow-btn-solid:hover {
+        box-shadow: 0 0 30px rgba(170, 255, 0, 0.5);
+    }
+
+    /* Deep timeline line/divider glow */
+    .glow-line {
+        background-color: var(--color-brand-yellow);
+        box-shadow: 0 0 8px rgba(170, 255, 0, 0.5), 0 0 16px rgba(170, 255, 0, 0.2);
+    }
+
+    /* Intense dot glow (for timeline dots or indicators) */
+    .glow-dot {
+        background-color: var(--color-brand-yellow);
+        box-shadow: 0 0 10px rgba(170, 255, 0, 0.8), 0 0 20px rgba(170, 255, 0, 0.4), 0 0 30px rgba(170, 255, 0, 0.2);
+    }
+}
+/* Medium Professional Neon Border */
+.neon-border {
+  border: 1px solid rgba(234,255,0,0.5);
+  box-shadow:
+    0 0 6px rgba(234,255,0,0.35),   /* close glow */
+    0 10px 35px rgba(234,255,0,0.18); /* soft spread */
+  transition: all 0.35s ease;
+}
+
+/* Hover glow */
+.neon-border:hover {
+  border-color: rgba(234,255,0,0.9);
+  box-shadow:
+    0 0 10px rgba(234,255,0,0.6),
+    0 12px 45px rgba(234,255,0,0.28);
+}
+
+/* Medium neon text */
+.neon-text {
+  color: var(--brand-yellow);
+  text-shadow:
+    0 0 6px rgba(234,255,0,0.4),
+    0 0 14px rgba(234,255,0,0.25);
+}
+
+/* Button glow */
+.neon-button {
+  border: 1px solid rgba(234,255,0,0.55);
+  background: transparent;
+  color: var(--brand-yellow);
+  box-shadow:
+    0 0 6px rgba(234,255,0,0.35),
+    0 8px 30px rgba(234,255,0,0.18);
+  transition: all 0.3s ease;
+}
+
+.neon-button:hover {
+  background: var(--brand-yellow);
+  color: black;
+  box-shadow:
+    0 0 12px rgba(234,255,0,0.7),
+    0 14px 45px rgba(234,255,0,0.35);
+}

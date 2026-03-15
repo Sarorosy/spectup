@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 
 const services = [
     {
@@ -34,8 +34,31 @@ const services = [
 
 const OurServices = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const containerRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: containerRef,
+        offset: ["start center", "end center"]
+    });
+
+    const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
     return (
-        <section className="relative w-full bg-black text-white py-2 min-h-[80vh] flex flex-col justify-between overflow-hidden">
+        <section ref={containerRef} className="relative w-full bg-black text-white py-2 min-h-[80vh] flex flex-col justify-between overflow-hidden">
+            {/* Glowing Tracker Line Container */}
+            <div className="absolute left-2 md:left-6 top-0 bottom-2 w-[2px] z-20 flex justify-center pointer-events-none">
+                {/* Background static line */}
+                <div className="absolute top-2 bottom-0 w-[1px] bg-white/10"></div>
+                
+                {/* Glowing Tracker Line */}
+                <motion.div 
+                    className="absolute top-2 w-[2px] glow-line"
+                    style={{ height: lineHeight }}
+                >
+                    {/* Glowing Dot */}
+                    <div className="absolute -left-[5px] bottom-[2px] w-3 h-3 rounded-full glow-dot translate-y-1/2" />
+                </motion.div>
+            </div>
+
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col flex-1 h-full">
                 
                 {/* Full Width Screen Border */}
@@ -45,7 +68,7 @@ const OurServices = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 flex-1">
                     {/* Left Column */}
                     <div className="md:col-span-4 lg:col-span-5">
-                        <span className="text-sm md:text-base font-bold text-white tracking-wide block">
+                        <span className="neon-text text-sm md:text-base font-bold text-white tracking-wide block">
                             [02] Our Services
                         </span>
                     </div>
@@ -70,7 +93,7 @@ const OurServices = () => {
                             className="text-lg md:text-xl lg:text-2xl text-white/70 leading-relaxed max-w-[800px]"
                         >
                             One mandate covers both advice and execution.<br className="hidden lg:block" />
-                            spectup helps you <strong className="text-white font-bold">define the raise</strong>, get <strong className="text-white font-bold">investor-ready</strong>,<br className="hidden lg:block" />
+                            Shine Investo helps you <strong className="text-white font-bold">define the raise</strong>, get <strong className="text-white font-bold">investor-ready</strong>,<br className="hidden lg:block" />
                             and run a <strong className="text-white font-bold">structured capital raising process</strong> from first<br className="hidden md:block" /> outreach to close.
                         </motion.p>
                     </div>
@@ -78,13 +101,13 @@ const OurServices = () => {
 
                 {/* Bottom Metadata row */}
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-32 border-b border-white/10 pb-4 text-[10px] md:text-xs font-bold text-white/50 tracking-wider">
-                    <div className="md:col-span-2 hidden md:block">
+                    <div className="neon-text md:col-span-2 hidden md:block">
                         <span>[id]</span>
                     </div>
-                    <div className="md:col-span-2 lg:col-span-3 hidden md:block">
+                    <div className="neon-text md:col-span-2 lg:col-span-3 hidden md:block">
                         <span>[service]</span>
                     </div>
-                    <div className="md:col-span-8 lg:col-span-7 hidden md:block">
+                    <div className="neon-text md:col-span-8 lg:col-span-7 hidden md:block">
                         <span>[What we do]</span>
                     </div>
                 </div>
@@ -112,7 +135,7 @@ const OurServices = () => {
                                 </h3>
                                 {service.link && (
                                     <div className="mt-8 hidden md:block">
-                                        <button className="inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                                        <button className="neon-border  neon-text inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
                                             {service.link}
                                         </button>
                                     </div>
@@ -126,7 +149,7 @@ const OurServices = () => {
                                 </p>
                                 {service.link && (
                                     <div className="mt-6 block md:hidden">
-                                        <button className="inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                                        <button className="neon-border  neon-text inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
                                             {service.link}
                                         </button>
                                     </div>
