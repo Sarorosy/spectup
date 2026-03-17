@@ -1,215 +1,191 @@
 import { useState, useEffect } from "react";
-import {  X, ArrowUpRight, Linkedin, Youtube, Instagram, ChevronDown } from "lucide-react";
+import { X, ChevronDown, MoreHorizontal } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import spotifyLogo from '../assets/spotify.png';
+
+const NAV_LINKS = [
+  { label: "Home", href: "#", active: true },
+  { label: "How It Works", href: "#" },
+  { label: "Services", href: "#" },
+  { label: "Reviews", href: "#" },
+];
 
 export default function Header() {
-  const [time, setTime] = useState(new Date());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 60000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
     };
-  }, [isMenuOpen]);
-
-  const formattedTime = time.toLocaleTimeString('en-US', {
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true,
-  });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="fixed top-0 left-1/2 -translate-x-1/2 w-[90%] z-50 px-6 py-4 flex items-center justify-between text-white ">
-        {/* Logo */}
-        <div className="flex items-center gap-2 cursor-pointer group">
-          <div className=" p-0.5 rounded-sm transition-transform group-hover:scale-110">
-            <img src="/spectup.svg" alt="logo" className="opacity-100 h-12" />
+      <header 
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          scrolled ? "bg-black/80 backdrop-blur-md py-3" : "bg-transparent py-6"
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
+          {/* Logo */}
+          <div className="flex items-center gap-3 cursor-pointer group z-10">
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              {/* Hexagon shape using SVG */}
+              <svg 
+                viewBox="0 0 100 100" 
+                className="absolute inset-0 w-full h-full drop-shadow-[0_0_8px_rgba(191,149,63,0.3)] group-hover:drop-shadow-[0_0_12px_rgba(191,149,63,0.5)] transition-all"
+              >
+                <path 
+                  d="M50 5 L90 27.5 V72.5 L50 95 L10 72.5 V27.5 Z" 
+                  fill="none" 
+                  stroke="#bf953f" 
+                  strokeWidth="4"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="text-[#bf953f] font-bold text-lg relative z-10 pr-0.5">SI</span>
+            </div>
+            <span className="text-white font-bold text-xl tracking-wide">Shine Investo</span>
           </div>
-          <span className="font-bold text-xl tracking-tight">Shine Investo</span>
-        </div>
 
-        {/* Center - Location & Time */}
-        <div className="hidden md:flex items-center gap-2 text-[13px] font-medium opacity-80 uppercase tracking-widest">
-          <span>Munich (DE)</span>
-          <span className="opacity-50">|</span>
-          <span>{formattedTime}</span>
-        </div>
+          {/* Center Navigation - Desktop */}
+          <nav className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className={`gold-link-hover text-[15px] font-medium ${
+                  link.active ? "text-white `active`" : "text-white/60"
+                }`}
+              >
+                {link.label}
+                {link.active && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute -bottom-0.5 left-0 w-full h-[1px] bg-gradient-to-r from-[#bf953f] via-[#fcf6ba] to-[#aa771c] shadow-[0_0_8px_rgba(191,149,63,0.5)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </a>
+            ))}
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              <MoreHorizontal size={20} />
+            </button>
+          </nav>
 
-        {/* Right - Work & Menu */}
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex items-center gap-1 cursor-pointer group hover:opacity-100 transition-opacity">
-            <span className="text-[14px] font-semibold">Our Work</span>
-            <span className="text-[12px] opacity-60 font-medium">[13]</span>
+          {/* Right Section - CTA & Mobile Toggle */}
+          <div className="flex items-center gap-6 z-10">
+            <button className="hidden sm:block goldbtn-compact text-[14px] px-6 py-2.5 rounded-lg font-bold text-[#1a1a1a] transition-all hover:scale-105 active:scale-95">
+              Book Call
+            </button>
+            
+            <button 
+              onClick={() => setIsMenuOpen(true)}
+              className="lg:hidden flex flex-col gap-1.5 cursor-pointer group"
+            >
+              <div className="w-6 h-[2px] bg-white transition-all group-hover:w-5"></div>
+              <div className="w-6 h-[2px] bg-white"></div>
+            </button>
           </div>
-
-          <button 
-            onClick={() => setIsMenuOpen(true)}
-            className="flex flex-col gap-1.5 cursor-pointer group"
-          >
-            <div className="w-8 h-[2px] bg-white transition-all group-hover:w-6"></div>
-            <div className="w-8 h-[2px] bg-white"></div>
-          </button>
         </div>
       </header>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div 
-            initial={{ x: "100%" }} 
-            animate={{ x: 0 }} 
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[100] bg-[#050505] text-white flex flex-col md:flex-row overflow-y-auto md:overflow-hidden font-sans"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex flex-col p-8 lg:p-16"
           >
-            {/* Close Button */}
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 z-50 p-2 text-white/70 hover:text-white transition-colors"
-            >
-              <X size={28} strokeWidth={1} />
-            </button>
-
-            {/* Left Side - Podcast Card */}
-            <div className="hidden md:flex flex-1 items-center justify-center p-8 lg:p-16 border-r border-white/5 relative">
-              <div className="absolute inset-0 bg-[#020202]"></div>
-              
-              <div className="w-full max-w-lg overflow-hidden group cursor-pointer relative z-10">
-                 {/* Image Container */}
-                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-white">
-                   <img src={spotifyLogo} alt="Podcast Thumbnail" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                   
-                   
-                   
-                   
-                 </div>
-                 
-                 {/* Card Content Footer with diagonal stripes */}
-                 <div className="p-5 flex items-center justify-between relative border border-white/10 border-t-0"
-                      style={{
-                        background: "repeating-linear-gradient(45deg, #0a0a0a, #0a0a0a 2px, #111 2px, #111 4px)"
-                      }}>
-                   
-                   <div className="relative z-10">
-                     <p className="text-[11px] text-white/50 mb-1 font-medium">Capital Raising Podcast</p>
-                     <h3 className="font-semibold text-[15px] tracking-tight text-white">Listen to our Podcast on Spotify</h3>
-                   </div>
-                   
-                   <div className="relative z-10 w-9 h-9 flex items-center justify-center bg-white text-black transition-colors self-end sm:self-auto">
-                     <ArrowUpRight size={18} strokeWidth={2.5} />
-                   </div>
-                 </div>
+            <div className="flex justify-between items-center mb-12">
+              <div className="flex items-center gap-3">
+                 <div className="relative w-10 h-10 flex items-center justify-center">
+                  <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
+                    <path d="M50 5 L90 27.5 V72.5 L50 95 L10 72.5 V27.5 Z" fill="none" stroke="#bf953f" strokeWidth="6" />
+                  </svg>
+                  <span className="text-[#bf953f] font-bold text-lg">SI</span>
+                </div>
+                <span className="text-white font-bold text-2xl tracking-tight">Shine Investo</span>
               </div>
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="w-12 h-12 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+              >
+                <X size={32} className="text-white" />
+              </button>
             </div>
 
-            {/* Right Side - Navigation */}
-            <div className="flex-1 flex flex-col h-full bg-[#050505]">
-              <div className="px-8 lg:px-24 pt-24 lg:pt-32 pb-8 flex-1 flex flex-col justify-center overflow-y-auto">
-                <p className="text-[11px] text-white/50 mb-6 font-medium">Menu</p>
-                
-                <nav className="flex flex-col gap-3">
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Home</a>
-                  
-                  {/* Services with Sub-menu */}
-                  <div className="flex flex-col gap-3 my-1">
-                    <button 
-                      onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit flex items-center gap-3"
-                    >
-                      Services
-                      <motion.div
-                        animate={{ rotate: isServicesOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronDown size={24} strokeWidth={2} className="opacity-50" />
-                      </motion.div>
-                    </button>
-                    
-                    <AnimatePresence>
-                      {isServicesOpen && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                          className="flex flex-col gap-3 text-[14px] text-white/50 font-medium pl-4 overflow-hidden"
-                        >
-                          <a href="#" className="hover:text-white transition-colors w-fit">Strategic App Ideas Funding</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Investor Ready Structure</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Co-Investment Evaluation</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Collaborations & Expansion</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Financial Projection Access</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Introduction to Investor Access</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Do You Need Funding</a>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+            <div className="flex flex-col lg:flex-row gap-16 lg:items-center h-full">
+              <nav className="flex flex-col gap-8 lg:gap-12 flex-1">
+                {NAV_LINKS.map((link, index) => (
+                  <motion.a 
+                    key={link.label}
+                    href={link.href} 
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="text-4xl lg:text-7xl font-bold text-white/50 hover:text-white transition-all hover:pl-4 w-fit gold-link-hover h-auto inline-block"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </motion.a>
+                ))}
+                <motion.a 
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.4 }}
+                  href="#" 
+                  className="text-4xl lg:text-7xl font-bold text-white/20 hover:text-white transition-all hover:pl-4 w-fit gold-link-hover"
+                >
+                  Contact
+                </motion.a>
+              </nav>
+
+              <div className="lg:w-1/3 space-y-12">
+                <div className="space-y-4">
+                  <p className="text-[#bf953f] font-bold tracking-widest uppercase text-sm">Quick Links</p>
+                  <div className="flex flex-col gap-4 text-xl text-white/60">
+                    <a href="#" className="hover:text-white transition-colors gold-link-hover w-fit">Career</a>
+                    <a href="#" className="hover:text-white transition-colors gold-link-hover w-fit">Privacy Policy</a>
+                    <a href="#" className="hover:text-white transition-colors gold-link-hover w-fit">Terms of Service</a>
                   </div>
-
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Funding Pathways</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Startup Evaluation</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Resources</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">About</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Contact</a>
-                </nav>
-              </div>
-
-              {/* Bottom Info Section */}
-              <div className="px-8 lg:px-24 py-8 lg:py-12 border-t border-white/10 flex flex-col md:flex-row gap-12 justify-between items-start md:items-end flex-shrink-0">
-                <div className="w-full max-w-[280px]">
-                  <p className="text-[11px] text-white/50 mb-3 tracking-wide">Let's Talk</p>
-                  <a href="mailto:hi@shineinvesto.com" className="gold-text text-xl lg:text-[26px] font-bold tracking-tight flex items-center justify-between pb-3 border-b border-white/20 group hover:border-white transition-colors">
-                    <span>hi@shineinvesto.com</span>
-                    <span className="text-white/50 group-hover:text-white transition-colors font-light">+</span>
-                  </a>
-                  <p className="mt-5 text-[12px] font-medium tracking-wide">
-                    Munich (DE) <span className="text-white/50 ml-2">{formattedTime}</span>
-                  </p>
                 </div>
 
-                <div className="flex flex-col">
-                   <p className="text-[11px] text-white/50 mb-3 tracking-wide md:text-left">Socials</p>
-                   <div className="flex items-center gap-5">
-                     <a href="#" className="text-white hover:text-white/70 transition-colors"><Linkedin size={18} strokeWidth={1.5} /></a>
-                     <a href="#" className="text-white hover:text-white/70 transition-colors"><Youtube size={18} strokeWidth={1.5} /></a>
-                     <a href="#" className="text-white hover:text-white/70 transition-colors flex items-center justify-center">
-                       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                       </svg>
-                     </a>
-                     <a href="#" className="text-white hover:text-white/70 transition-colors"><Instagram size={18} strokeWidth={1.5} /></a>
-                   </div>
+                <div className="space-y-4">
+                  <p className="text-[#bf953f] font-bold tracking-widest uppercase text-sm">Contact Us</p>
+                  <p className="text-2xl text-white">hi@shineinvesto.com</p>
                 </div>
-              </div>
 
-              {/* Footer Links (Very Bottom) */}
-              <div className="px-8 lg:px-24 py-5 lg:py-6 border-t border-[rgba(255,255,255,0.05)] flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 tracking-wide font-medium">
-                <div className="flex gap-6 mb-3 md:mb-0 w-full md:w-auto justify-between md:justify-start">
-                  <a href="#" className="gold-text flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
-                    Privacy Policy <ArrowUpRight size={10} strokeWidth={3} className="text-brand-yellow" />
-                  </a>
-                  <a href="#" className="gold-text flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
-                    Terms of Service <ArrowUpRight size={10} strokeWidth={3} className="text-brand-yellow" />
-                  </a>
-                </div>
-                <p className="w-full md:w-auto text-center md:text-right">© 2026 shine investo All rights reserved.</p>
+                <button className="w-full lg:w-fit goldbtn-compact px-12 py-5 rounded-2xl font-bold text-[#1a1a1a] text-xl transition-transform hover:scale-105">
+                  Book A Call
+                </button>
               </div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <style dangerouslySetInnerHTML={{ __html: `
+        .goldbtn-compact {
+          background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+          background-size: 200% 100%;
+          border: none;
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+          animation: gold-shimmer 3s infinite linear;
+        }
+        
+        @keyframes gold-shimmer {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+      `}} />
     </>
   );
 }

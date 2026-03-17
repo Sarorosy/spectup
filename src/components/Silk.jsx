@@ -63,7 +63,19 @@ void main() {
                                    0.02 * tOffset) +
                            sin(20.0 * (tex.x + tex.y - 0.1 * tOffset)));
 
-  vec4 col = vec4(uColor, 1.0) * vec4(pattern) - rnd / 15.0 * uNoiseIntensity;
+  // vec4 col = vec4(uColor, 1.0) * vec4(pattern) - rnd / 15.0 * uNoiseIntensity;
+
+  float p = pow(pattern, 0.7); // makes it brighter
+
+vec3 base = uColor * 0.2;   // instead of pure black
+vec3 finalColor = mix(base, uColor, p);
+
+// add glow
+finalColor += uColor * 0.15;
+
+// softer noise (less darkening)
+vec4 col = vec4(finalColor, 1.0) - rnd / 25.0 * uNoiseIntensity;
+
   col.a = 1.0;
   gl_FragColor = col;
 }
@@ -94,7 +106,7 @@ const SilkPlane = forwardRef(function SilkPlane({ uniforms }, ref) {
 });
 SilkPlane.displayName = 'SilkPlane';
 
-const Silk = ({ speed = 5, scale = 1, color = '#12502ad9', noiseIntensity = 1.5, rotation = 0 }) => {
+const Silk = ({ speed = 5, scale = 1, color = '#114826d9', noiseIntensity = 1.5, rotation = 0 }) => {
   const meshRef = useRef();
 
   const uniforms = useMemo(() => ({
