@@ -13,7 +13,7 @@ function App() {
     <>
       <div
         className="relative before:absolute before:top-0 before:left-0 before:w-full
-     before:h-full before:content-[''] before:opacity-[0.05] before:z-10 before:pointer-events-none
+     before:h-full before:content-[''] before:opacity-[0.02] before:z-10 before:pointer-events-none
      before:bg-[url('https://www.ui-layouts.com/noise.gif')]"
       >
 

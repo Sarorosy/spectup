@@ -69,7 +69,7 @@ export default function Footer() {
           <div className="max-w-xl">
 
             <div className="group inline-flex items-center gap-3 cursor-pointer border-b border-white/30 pb-3 mb-6 hover:border-brand-yellow transition-colors w-auto">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tighter break-all">
+              <h2 className="gold-text text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tighter break-all">
                 hi@shineinvesto.com
               </h2>
 
@@ -124,12 +124,12 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mt-auto">
 
           <div className="flex gap-6 sm:gap-8 text-[12px] sm:text-[13px] font-bold flex-wrap">
-            <a href="#" className="flex items-center gap-[4px] hover:text-white/70 transition-colors">
+            <a href="#" className="gold-text flex items-center gap-[4px] hover:text-white/70 transition-colors">
               Legal Notice
               <ArrowUpRight size={14} className="text-brand-yellow" strokeWidth={3} />
             </a>
 
-            <a href="#" className="flex items-center gap-[4px] hover:text-white/70 transition-colors">
+            <a href="#" className="gold-text flex items-center gap-[4px] hover:text-white/70 transition-colors">
               Privacy Policy
               <ArrowUpRight size={14} className="text-brand-yellow" strokeWidth={3} />
             </a>

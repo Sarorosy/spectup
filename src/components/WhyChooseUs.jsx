@@ -16,12 +16,12 @@ const WhyChooseUs = () => {
                 {/* Top Header Section */}
                 <div className="grid grid-cols-1 md:grid-cols-12 shrink-0 border-b border-white/10">
                     <div className="md:col-span-4 lg:col-span-4 p-6 md:p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10 flex items-start">
-                        <span className="text-sm font-bold tracking-wide block text-white/90">
+                        <span className="gold-text text-sm font-bold tracking-wide block text-white/90">
                             [03] Shine Investo's USPs
                         </span>
                     </div>
 
-                    <div className="md:col-span-8 lg:col-span-8 p-6 md:p-8 lg:p-12">
+                    <div className="gold-text md:col-span-8 lg:col-span-8 p-6 md:p-8 lg:p-12">
                         <div className="max-w-3xl">
                             <h2 className="text-3xl md:text-5xl lg:text-[56px] tracking-tight leading-[1.1] mb-6">
                                 <span className="text-white/80 font-medium">Why choose Shine Investo as </span><span className="text-white font-bold">your<br />capital advisory partner?</span>
@@ -38,8 +38,8 @@ const WhyChooseUs = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 h-auto lg:h-[450px]">
 
                         {/* Left Block */}
-                        <div className="border border-[#C1FF00]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] p-8 flex flex-col relative group bg-black hover:bg-[#050505] transition-all duration-500">
-                            <div className="absolute top-6 right-6 w-8 h-8 bg-[#C1FF00] shadow-[0_0_15px_rgba(193,255,0,0.6)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:translate-x-1 cursor-pointer z-10 text-black">
+                        <div className="border border-[rgba(16,255,156)]/50 shadow-[0_0_30px_rgba(16,255,156,0.15)] p-8 flex flex-col relative group bg-black hover:bg-[#050505] transition-all duration-500">
+                            <div className="absolute top-6 right-6 w-8 h-8 bg-[rgba(16,255,156)] shadow-[0_0_15px_rgba(16,255,156,0.6)] flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:translate-x-1 cursor-pointer z-10 text-black">
                                 <svg className="w-5 h-5 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M7 7h10v10" /></svg>
                             </div>
 
@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
                                     // simple ascending trend with randomness
                                     const height = Math.min(100, Math.max(10, (i / 32) * 80 + (Math.random() * 20)));
                                     return (
-                                        <div key={i} className="flex-1 bg-[#C1FF00]/50 shadow-[0_0_10px_rgba(193,255,0,0.3)] hover:bg-[#C1FF00] hover:shadow-[0_0_15px_rgba(193,255,0,0.8)] transition-all duration-300 cursor-pointer" style={{ height: `${height}%` }}></div>
+                                        <div key={i} className="flex-1 bg-[rgba(16,255,156)]/50 shadow-[0_0_10px_rgba(16,255,156,0.3)] hover:bg-[rgba(16,255,156)] hover:shadow-[0_0_15px_rgba(16,255,156,0.8)] transition-all duration-300 cursor-pointer" style={{ height: `${height}%` }}></div>
                                     )
                                 })}
                                 <div className="absolute bottom-[-22px] left-0 right-0 flex justify-between text-[11px] text-white/40 font-semibold tracking-wider">
@@ -58,7 +58,7 @@ const WhyChooseUs = () => {
                             </div>
 
                             <div className="mt-8 relative z-10">
-                                <div className="text-5xl md:text-[56px] font-bold tracking-tighter text-white mb-4 leading-none">$120M +</div>
+                                <div className="text-5xl md:text-[56px] font-bold tracking-tighter text-white mb-4 leading-none gold-text">$120M +</div>
                                 <p className="text-[13px] text-white/60 leading-relaxed max-w-[280px]">
                                     Capital raised for clients through our fundraising consultant services
                                 </p>
@@ -67,31 +67,31 @@ const WhyChooseUs = () => {
 
                         {/* Middle Block */}
                         <div className="flex flex-col gap-6 h-[500px] lg:h-auto">
-                            <div className="border border-[#C1FF00]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] p-8 flex-1 flex flex-col justify-center relative overflow-hidden group bg-black hover:bg-[#050505] transition-all duration-500">
+                            <div className="border border-[rgba(16,255,156)]/50 shadow-[0_0_30px_rgba(16,255,156,0.15)] p-8 flex-1 flex flex-col justify-center relative overflow-hidden group bg-black hover:bg-[#050505] transition-all duration-500">
                                 {/* Background arcs */}
-                                <div className="absolute top-[-50%] right-[-10%] w-[150%] h-[150%] rounded-full border border-[#C1FF00]/40 shadow-[0_0_20px_rgba(193,255,0,0.2)] opacity-40 pointer-events-none group-hover:scale-110 transition-all duration-700"></div>
-                                <div className="absolute top-[-40%] right-[-5%] w-[120%] h-[120%] rounded-full border border-[#C1FF00]/30 shadow-[0_0_15px_rgba(193,255,0,0.1)] opacity-40 pointer-events-none group-hover:scale-105 transition-all duration-700"></div>
-                                <div className="absolute top-[-30%] right-[0%] w-[90%] h-[90%] rounded-full border border-[#C1FF00]/20 opacity-40 pointer-events-none transition-colors duration-700"></div>
+                                <div className="absolute top-[-50%] right-[-10%] w-[150%] h-[150%] rounded-full border border-[rgba(16,255,156)]/40 shadow-[0_0_20px_rgba(16,255,156,0.2)] opacity-40 pointer-events-none group-hover:scale-110 transition-all duration-700"></div>
+                                <div className="absolute top-[-40%] right-[-5%] w-[120%] h-[120%] rounded-full border border-[rgba(16,255,156)]/30 shadow-[0_0_15px_rgba(16,255,156,0.1)] opacity-40 pointer-events-none group-hover:scale-105 transition-all duration-700"></div>
+                                <div className="absolute top-[-30%] right-[0%] w-[90%] h-[90%] rounded-full border border-[rgba(16,255,156)]/20 opacity-40 pointer-events-none transition-colors duration-700"></div>
 
-                                <Zap className="absolute top-8 right-8 text-[#C1FF00] w-7 h-7 z-10 drop-shadow-[0_0_15px_rgba(193,255,0,0.8)] fill-[#C1FF00] group-hover:drop-shadow-[0_0_20px_rgba(193,255,0,1)] transition-all duration-500" />
+                                <Zap className="absolute top-8 right-8 text-[rgba(16,255,156)] w-7 h-7 z-10 drop-shadow-[0_0_15px_rgba(16,255,156,0.8)] fill-[rgba(16,255,156)] group-hover:drop-shadow-[0_0_20px_rgba(16,255,156,1)] transition-all duration-500" />
 
                                 <div className="relative z-10">
-                                    <div className="text-[48px] font-bold tracking-tighter text-white mb-2 leading-none">3x</div>
+                                    <div className="text-[48px] font-bold tracking-tighter text-white mb-2 leading-none gold-text">3x</div>
                                     <p className="text-[13px] text-white/60 leading-relaxed max-w-[220px]">
                                         Clients who work with our capital advisory raise 3x faster
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="border border-[#C1FF00]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] p-8 flex-1 flex flex-col justify-center relative overflow-hidden group bg-black hover:bg-[#050505] transition-all duration-500">
+                            <div className="border border-[rgba(16,255,156)]/50 shadow-[0_0_30px_rgba(16,255,156,0.15)] p-8 flex-1 flex flex-col justify-center relative overflow-hidden group bg-black hover:bg-[#050505] transition-all duration-500">
                                 {/* Background arcs / Globe symbol */}
-                                <div className="absolute bottom-[-60%] right-[-20%] w-[180%] h-[180%] rounded-full border border-[#C1FF00]/40 shadow-[0_0_20px_rgba(193,255,0,0.2)] opacity-40 pointer-events-none group-hover:rotate-12 transition-all duration-1000"></div>
-                                <div className="absolute bottom-[-40%] right-[-10%] w-[120%] h-[120%] rounded-full border border-[#C1FF00]/30 shadow-[0_0_15px_rgba(193,255,0,0.1)] opacity-40 pointer-events-none transition-colors duration-700"></div>
-                                <div className="absolute bottom-[-10%] right-[10%] w-[60%] h-[180%] border border-[#C1FF00]/30 opacity-40 pointer-events-none rounded-[100%] transition-colors duration-700"></div>
-                                <div className="absolute bottom-[20%] right-[-20%] w-[180%] h-[60%] border border-[#C1FF00]/30 opacity-40 pointer-events-none rounded-[100%] transition-colors duration-700"></div>
+                                <div className="absolute bottom-[-60%] right-[-20%] w-[180%] h-[180%] rounded-full border border-[rgba(16,255,156)]/40 shadow-[0_0_20px_rgba(16,255,156,0.2)] opacity-40 pointer-events-none group-hover:rotate-12 transition-all duration-1000"></div>
+                                <div className="absolute bottom-[-40%] right-[-10%] w-[120%] h-[120%] rounded-full border border-[rgba(16,255,156)]/30 shadow-[0_0_15px_rgba(16,255,156,0.1)] opacity-40 pointer-events-none transition-colors duration-700"></div>
+                                <div className="absolute bottom-[-10%] right-[10%] w-[60%] h-[180%] border border-[rgba(16,255,156)]/30 opacity-40 pointer-events-none rounded-[100%] transition-colors duration-700"></div>
+                                <div className="absolute bottom-[20%] right-[-20%] w-[180%] h-[60%] border border-[rgba(16,255,156)]/30 opacity-40 pointer-events-none rounded-[100%] transition-colors duration-700"></div>
 
                                 <div className="relative z-10">
-                                    <div className="text-[48px] font-bold tracking-tighter text-white mb-2 leading-none">400 +</div>
+                                    <div className="text-[48px] font-bold tracking-tighter text-white mb-2 leading-none gold-text">400 +</div>
                                     <p className="text-[13px] text-white/60 leading-relaxed max-w-[260px]">
                                         Family Offices, Venture Capital Funds, LPs in our Global Network
                                     </p>
@@ -100,7 +100,7 @@ const WhyChooseUs = () => {
                         </div>
 
                         {/* Right Block */}
-                        <div className="min-h-[400px] border border-[#C1FF00]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] relative overflow-hidden group p-5 sm:p-6 md:p-8 flex flex-col justify-end bg-black transition-all duration-500">
+                        <div className="min-h-[400px] border border-[rgba(16,255,156)]/50 shadow-[0_0_30px_rgba(16,255,156,0.15)] relative overflow-hidden group p-5 sm:p-6 md:p-8 flex flex-col justify-end bg-black transition-all duration-500">
 
                             <img
                                 src={three}
@@ -116,18 +116,18 @@ const WhyChooseUs = () => {
                                     <img src='/spectup.svg' className='h-8' />
                                 </div>
 
-                                <span className="text-[#C1FF00] drop-shadow-[0_0_8px_rgba(193,255,0,0.5)] font-bold tracking-tight text-xs sm:text-sm transition-all duration-500">
+                                <span className="text-[rgba(16,255,156)] drop-shadow-[0_0_8px_rgba(16,255,156,0.5)] font-bold tracking-tight text-xs sm:text-sm transition-all duration-500">
                                     Shine Investo
                                 </span>
                             </div>
 
                             {/* Top right rating */}
                             <div className="absolute top-5 right-5 sm:top-6 sm:right-6 md:top-8 md:right-8 text-right z-10 flex flex-col items-end">
-                                <div className="text-[16px] sm:text-[18px] md:text-[20px] font-bold text-white mb-1 leading-none">
+                                <div className="gold-text text-[16px] sm:text-[18px] md:text-[20px] font-bold text-white mb-1 leading-none">
                                     4.7 / 5
                                 </div>
 
-                                <div className="flex gap-[2px] text-[#C1FF00]">
+                                <div className="flex gap-[2px] text-[rgba(16,255,156)]">
                                     {"★★★★★".split("").map((star, i) => (
                                         <span key={i} className="text-[9px] sm:text-[10px]">
                                             {star}
@@ -139,7 +139,7 @@ const WhyChooseUs = () => {
                             {/* Content */}
                             <div className="relative z-10">
 
-                                <div className="text-[36px] sm:text-[44px] md:text-[52px] font-bold tracking-tighter text-white mb-2 leading-none">
+                                <div className="gold-text text-[36px] sm:text-[44px] md:text-[52px] font-bold tracking-tighter text-white mb-2 leading-none">
                                     92%
                                 </div>
 
@@ -175,7 +175,7 @@ const WhyChooseUs = () => {
 
                 {/* Bottom Marquee Block */}
                 <div className="px-6 md:px-8 lg:px-12 pb-12 w-full">
-                    <div className="border border-[#C1FF00]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] flex flex-col md:flex-row items-stretch w-full overflow-hidden bg-black group/marquee transition-all duration-500">
+                    <div className="border border-[rgba(16,255,156)]/50 shadow-[0_0_30px_rgba(193,255,0,0.15)] flex flex-col md:flex-row items-stretch w-full overflow-hidden bg-black group/marquee transition-all duration-500">
                         <div className="p-6 md:p-8 border-b md:border-b-0 md:border-r border-white/10 shrink-0 z-20 flex flex-col justify-center min-w-[280px] bg-black">
                             <div className="text-[40px] font-bold text-white mb-1 tracking-tighter leading-none">80%</div>
                             <div className="text-[13px] text-white/50 leading-snug font-medium">

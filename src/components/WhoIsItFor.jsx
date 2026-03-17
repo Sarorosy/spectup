@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
-import Plasma from './ui/Plasma';
+import Silk from './Silk';
 
 const targets = [
     {
@@ -40,15 +40,15 @@ const WhoIsItFor = () => {
                 {/* Section Header */}
                 <div className="flex flex-col items-center mb-20">
                     <div className="flex items-center gap-2 mb-8 self-start">
-                        <div className="w-4 h-4 bg-brand-yellow flex items-center justify-center">
-                            <div className="w-0 h-0 border-l-[3.5px] border-l-transparent border-r-[3.5px] border-r-transparent border-b-[6px] border-b-black mb-[1px]" />
+                        <div className="w-4 h-4  flex items-center justify-center">
+                            <img src="/spectup.svg" />
                         </div>
                         <span className="text-[10px] font-black tracking-[0.2em] uppercase">
                             Shine Investo
                         </span>
                     </div>
 
-                    <h2 className="text-5xl md:text-8xl font-bold tracking-tighter font-display text-center">
+                    <h2 className="text-5xl md:text-8xl font-bold tracking-tighter font-display text-center gold-text">
                         Who this is for
                     </h2>
                 </div>
@@ -73,15 +73,17 @@ const WhoIsItFor = () => {
                                 border-b md:border-b-0`}
                             >
 
-                                {/* Plasma Background */}
-                                <Plasma
-                                    className={`
-                                    ${isActive ? "block" : "hidden"}
-                                    md:hidden
-                                    group-hover:block
-                                    duration-300
-                                    `}
-                                />
+                                {/* Silk Background */}
+                                <div className={`
+                                    absolute inset-0 pointer-events-none overflow-hidden
+                                    ${isActive ? "opacity-100" : "opacity-0"}
+                                    md:opacity-0
+                                    md:group-hover:opacity-100
+                                    transition-opacity
+                                    duration-500
+                                `}>
+                                    <Silk color='#bf953f' />
+                                </div>
 
                                 {/* Gradient */}
                                 <div className={`absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent transition-opacity duration-500
@@ -100,7 +102,7 @@ const WhoIsItFor = () => {
 
                                 <div className="relative z-10 flex flex-col h-full">
 
-                                    <span className="text-[10px] md:text-xs font-bold text-white/20 block mb-4 md:mb-6 tracking-widest neon-text">
+                                    <span className="text-[10px] md:text-xs font-bold text-white/20 block mb-4 md:mb-6 tracking-widest ">
                                         {target.number}
                                     </span>
 

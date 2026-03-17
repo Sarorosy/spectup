@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import {  X, ArrowUpRight, Linkedin, Youtube, Instagram, ChevronDown } from "lucide-react";
+import {  X, ArrowUpRight, Linkedin, Youtube, Instagram } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import spotifyLogo from '../assets/spotify.png';
 
 export default function Header() {
   const [time, setTime] = useState(new Date());
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 60000);
@@ -121,48 +120,24 @@ export default function Header() {
                 
                 <nav className="flex flex-col gap-3">
                   <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Home</a>
+                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">About Us</a>
                   
-                  {/* Services with Sub-menu */}
                   <div className="flex flex-col gap-3 my-1">
-                    <button 
-                      onClick={() => setIsServicesOpen(!isServicesOpen)}
-                      className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit flex items-center gap-3"
-                    >
-                      Services
-                      <motion.div
-                        animate={{ rotate: isServicesOpen ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <ChevronDown size={24} strokeWidth={2} className="opacity-50" />
-                      </motion.div>
-                    </button>
-                    
-                    <AnimatePresence>
-                      {isServicesOpen && (
-                        <motion.div 
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                          className="flex flex-col gap-3 text-[14px] text-white/50 font-medium pl-4 overflow-hidden"
-                        >
-                          <a href="#" className="hover:text-white transition-colors w-fit">Strategic App Ideas Funding</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Investor Ready Structure</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Co-Investment Evaluation</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Collaborations & Expansion</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Financial Projection Access</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Introduction to Investor Access</a>
-                          <a href="#" className="hover:text-white transition-colors w-fit">Do You Need Funding</a>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                    <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">
+                      Fundraising Consultant
+                    </a>
+                    <div className="flex flex-col gap-3 text-[14px] text-white/60 font-medium">
+                      <a href="#" className="hover:text-white transition-colors w-fit">Pitch Deck Service</a>
+                      <a href="#" className="hover:text-white transition-colors w-fit">Financial Modeling</a>
+                      <a href="#" className="hover:text-white transition-colors w-fit">Investor Outreach</a>
+                    </div>
                   </div>
 
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Funding Pathways</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Startup Evaluation</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Resources</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">About</a>
-                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Contact</a>
+                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Private Placement Agent</a>
+                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors w-fit">Leads Gen Agency</a>
+                  <a href="#" className="text-2xl lg:text-[28px] font-bold tracking-tight hover:text-white/70 transition-colors flex items-center gap-2 w-fit">
+                    Resource Hub <span className="text-lg lg:text-xl text-white/40 font-normal ml-1">[83]</span>
+                  </a>
                 </nav>
               </div>
 
@@ -170,7 +145,7 @@ export default function Header() {
               <div className="px-8 lg:px-24 py-8 lg:py-12 border-t border-white/10 flex flex-col md:flex-row gap-12 justify-between items-start md:items-end flex-shrink-0">
                 <div className="w-full max-w-[280px]">
                   <p className="text-[11px] text-white/50 mb-3 tracking-wide">Let's Talk</p>
-                  <a href="mailto:hi@shineinvesto.com" className="gold-text text-xl lg:text-[26px] font-bold tracking-tight flex items-center justify-between pb-3 border-b border-white/20 group hover:border-white transition-colors">
+                  <a href="mailto:hi@shineinvesto.com" className="text-xl lg:text-[26px] font-bold tracking-tight flex items-center justify-between pb-3 border-b border-white/20 group hover:border-white transition-colors">
                     <span>hi@shineinvesto.com</span>
                     <span className="text-white/50 group-hover:text-white transition-colors font-light">+</span>
                   </a>
@@ -197,10 +172,10 @@ export default function Header() {
               {/* Footer Links (Very Bottom) */}
               <div className="px-8 lg:px-24 py-5 lg:py-6 border-t border-[rgba(255,255,255,0.05)] flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 tracking-wide font-medium">
                 <div className="flex gap-6 mb-3 md:mb-0 w-full md:w-auto justify-between md:justify-start">
-                  <a href="#" className="gold-text flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
+                  <a href="#" className="flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
                     Privacy Policy <ArrowUpRight size={10} strokeWidth={3} className="text-brand-yellow" />
                   </a>
-                  <a href="#" className="gold-text flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
+                  <a href="#" className="flex items-center gap-1 font-bold text-white hover:text-white/70 transition-colors">
                     Terms of Service <ArrowUpRight size={10} strokeWidth={3} className="text-brand-yellow" />
                   </a>
                 </div>

@@ -39,7 +39,7 @@ export default function LeadSection() {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -60, opacity: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="text-[8vw] md:text-[6vw] font-bold tracking-tighter leading-none lowercase font-display"
+                className="gold-text text-[8vw] md:text-[6vw] font-bold tracking-tighter leading-none lowercase font-display"
               >
                 {words[index]}
               </motion.span>
@@ -200,7 +200,7 @@ export default function LeadSection() {
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="group flex items-center justify-between bg-black border border-brand-yellow text-brand-yellow px-5 py-3 rounded-sm font-semibold text-sm shadow-[0_0_15px_rgba(234,255,0,0.5)] hover:shadow-[0_0_30px_rgba(234,255,0,0.8)] hover:bg-brand-yellow/10 transition-all duration-300 w-full sm:w-fit"
+                className="group flex items-center justify-between goldbtn px-5 py-3 rounded-sm font-semibold text-sm shadow-[0_0_15px_rgba(234,255,0,0.5)] hover:shadow-[0_0_30px_rgba(234,255,0,0.8)] hover:bg-brand-yellow/10 transition-all duration-300 w-full sm:w-fit"
               >
 
                 <span>Submit a project</span>

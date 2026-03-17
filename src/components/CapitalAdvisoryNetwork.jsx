@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
+import Silk from './Silk';
 
 const Counter = ({ from, to }) => {
     const ref = useRef(null);
@@ -41,12 +42,12 @@ const CapitalAdvisoryNetwork = () => {
                 {/* Header section */}
                 <div className="flex flex-col md:flex-row mb-16 gap-4 md:gap-8">
                     <div className="md:w-1/4">
-                        <span className="neon-text text-xs md:text-sm font-semibold text-white/50 tracking-wider">
+                        <span className="gold-text text-xs md:text-sm font-semibold text-white/50 tracking-wider">
                             &copy; 2022 - 2025
                         </span>
                     </div>
                     <div className="md:w-3/4 max-w-3xl">
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-white leading-tight">
+                        <h2 className="gold-text text-4xl md:text-5xl font-bold tracking-tighter mb-6 text-white leading-tight">
                             Our Capital Advisory Network
                         </h2>
                         <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
@@ -75,16 +76,15 @@ const CapitalAdvisoryNetwork = () => {
                         <div className="absolute inset-0 opacity-100 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
                             <div className="absolute inset-0 bg-gradient-to-br from-brand-yellow/10 via-black to-brand-yellow/5 z-0 mix-blend-screen" />
                             {/* Plasma blur effect */}
-                            <div className="absolute -top-[50%] -left-[50%] w-[200%] h-[200%] animate-[spin_15s_linear_infinite] origin-center opacity-40 group-hover:opacity-60 transition-opacity duration-700">
-                                <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-brand-yellow rounded-full blur-[120px] mix-blend-screen opacity-20" />
-                                <div className="absolute top-1/4 right-1/4 w-80 h-80 bg-brand-yellow rounded-full blur-[100px] mix-blend-screen opacity-30" />
-                            </div>
+                            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                <Silk color="#10ff9c" speed={2} />
+            </div>
                         </div>
 
                         {/* Content */}
                         <div className="relative z-10 flex flex-col items-center text-center">
                             <motion.div 
-                                className="w-16 h-16 md:w-20 md:h-20 bg-brand-yellow rounded-2xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(226,249,11,0.3)] group-hover:shadow-[0_0_50px_rgba(226,249,11,0.5)] transition-shadow duration-500 cursor-pointer"
+                                className="w-16 h-16 md:w-20 md:h-20 bg-brand-yellow rounded-2xl flex items-center justify-center mb-6  transition-shadow duration-500 cursor-pointer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -95,7 +95,7 @@ const CapitalAdvisoryNetwork = () => {
                             <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
                                 +<Counter from={1} to={400} /> Other VCs, LPs, Family Offices
                             </h3>
-                            <button className="bg-white text-black px-6 py-3 rounded text-sm font-bold flex items-center gap-2 hover:bg-gray-100 transition-colors">
+                            <button className="gold-bg cursor-pointer text-black px-6 py-3 rounded text-sm font-bold flex items-center gap-2 hover:bg-gray-100 transition-colors">
                                 You're Investor? Join now
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="rotate-45">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>

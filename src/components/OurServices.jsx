@@ -1,39 +1,48 @@
-import React, { useState, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { PieChart, ClipboardCheck, Users, Handshake } from 'lucide-react';
+import Silk from './Silk';
 
 const services = [
     {
         id: "01",
         title: "Capital Strategy",
         description: "We act as your capital advisory, clarifying how much to raise, from whom, and on what terms so the process follows a clear plan rather than guesswork.",
-        link: null,
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+        icon: <PieChart size={24} />,
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop",
+        color: "#10ff9c",
+        shadow: "rgba(16, 255, 156, 0.3)"
     },
     {
         id: "02",
         title: "Investor Readiness",
         description: "We create the core materials for your round: pitch deck, financial model, and key documents, so investors can quickly understand and compare your deal.",
-        link: "Linked Services",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+        icon: <ClipboardCheck size={24} />,
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+        color: "#10ff9c",
+        shadow: "rgba(16, 255, 156, 0.3)"
     },
     {
         id: "03",
         title: "Investor Outreach & Dealflow",
         description: "We run targeted investor outreach, combining our network with structured outbound so the right VCs, family offices, and LPs actually see your round.",
-        link: "Linked Services",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+        icon: <Users size={24} />,
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=600&auto=format&fit=crop",
+        color: "#10ff9c",
+        shadow: "rgba(16, 255, 156, 0.3)"
     },
     {
         id: "04",
         title: "Closing Support",
         description: "We stay involved throughout the mandate: preparing you for investor meetings, managing follow‑ups, and supporting you in negotiations until the deal is closed.",
-        link: null,
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=600&auto=format&fit=crop"
+        icon: <Handshake size={24} />,
+        image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=600&auto=format&fit=crop",
+        color: "#10ff9c",
+        shadow: "rgba(16, 255, 156, 0.3)"
     }
 ];
 
 const OurServices = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(null);
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -43,166 +52,148 @@ const OurServices = () => {
     const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <section ref={containerRef} className="relative w-full bg-black text-white py-2 min-h-[80vh] flex flex-col justify-between overflow-hidden">
-            {/* Glowing Tracker Line Container */}
-            <div className="absolute left-2 md:left-6 top-0 bottom-2 w-[2px] z-20 flex justify-center pointer-events-none">
-                {/* Background static line */}
-                <div className="absolute top-2 bottom-0 w-[1px] bg-white/10"></div>
-                
-                {/* Glowing Tracker Line */}
-                <motion.div 
-                    className="absolute top-2 w-[2px] glow-line"
-                    style={{ height: lineHeight }}
+        <section ref={containerRef} className="relative w-full bg-black text-white py-24 overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                <Silk color="#10ff9c" speed={2} />
+            </div>
+            <div className="relative z-10 max-w-7xl mx-auto px-6 mb-20">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="text-center md:text-left"
                 >
-                    {/* Glowing Dot */}
-                    <div className="absolute -left-[5px] bottom-[2px] w-3 h-3 rounded-full glow-dot translate-y-1/2" />
+                    <span className="text-[#10ff9c] text-sm font-bold tracking-[0.2em] uppercase mb-4 block">
+                        Our Expertise
+                    </span>
+                    <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                        What we do through our<br className="hidden md:block" /> capital raising service
+                    </h2>
+                    <p className="text-white/60 text-lg md:text-xl max-w-2xl">
+                        One mandate covers both advice and execution. Shine Investo helps you define the raise, get investor-ready, and run a structured process.
+                    </p>
                 </motion.div>
             </div>
 
-            <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col flex-1 h-full">
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
+                {/* Central Tracker Line */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2 hidden md:block" />
                 
-                {/* Full Width Screen Border */}
-                <div className="w-screen relative left-1/2 -translate-x-1/2 border-t border-white/10 mb-12 md:mb-16"></div>
+                {/* Active Glowing Line */}
+                <motion.div 
+                    className="absolute left-1/2 top-0 w-[2px] bg-gradient-to-b from-[#10ff9c] to-[#10ff9c] -translate-x-1/2 z-10 hidden md:block"
+                    style={{ height: lineHeight, boxShadow: "0 0 15px rgba(16, 255, 156, 0.3)" }}
+                />
 
-                {/* Main Content Area */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 flex-1">
-                    {/* Left Column */}
-                    <div className="md:col-span-4 lg:col-span-5">
-                        <span className="neon-text text-sm md:text-base font-bold text-white tracking-wide block">
-                            [02] Our Services
-                        </span>
-                    </div>
-
-                    {/* Right Column */}
-                    <div className="md:col-span-8 lg:col-span-7 flex flex-col pt-4 md:pt-0">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="text-5xl md:text-6xl font-bold tracking-tighter leading-[0.95] font-display mb-8 text-white"
-                        >
-                            What we do through our<br className="hidden md:block" /> capital raising service
-                        </motion.h2>
-                        
-                        <motion.p 
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                            viewport={{ once: true }}
-                            className="text-lg md:text-xl lg:text-2xl text-white/70 leading-relaxed max-w-[800px]"
-                        >
-                            One mandate covers both advice and execution.<br className="hidden lg:block" />
-                            Shine Investo helps you <strong className="text-white font-bold">define the raise</strong>, get <strong className="text-white font-bold">investor-ready</strong>,<br className="hidden lg:block" />
-                            and run a <strong className="text-white font-bold">structured capital raising process</strong> from first<br className="hidden md:block" /> outreach to close.
-                        </motion.p>
-                    </div>
-                </div>
-
-                {/* Bottom Metadata row */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mt-32 border-b border-white/10 pb-4 text-[10px] md:text-xs font-bold text-white/50 tracking-wider">
-                    <div className="neon-text md:col-span-2 hidden md:block">
-                        <span>[id]</span>
-                    </div>
-                    <div className="neon-text md:col-span-2 lg:col-span-3 hidden md:block">
-                        <span>[service]</span>
-                    </div>
-                    <div className="neon-text md:col-span-8 lg:col-span-7 hidden md:block">
-                        <span>[What we do]</span>
-                    </div>
-                </div>
-
-                {/* Services List */}
-                <div className="flex flex-col w-full relative">
-                    {services.map((service, index) => (
-                        <div 
-                            key={index} 
-                            className="group grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 py-10 md:py-16 border-b border-white/5 relative cursor-pointer"
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
-                        >
-                            {/* ID */}
-                            <div className="md:col-span-2 flex items-start">
-                                <span className="text-xl md:text-2xl font-bold text-brand-yellow">
-                                    {service.id}
-                                </span>
-                            </div>
-
-                            {/* Title */}
-                            <div className="md:col-span-2 lg:col-span-3">
-                                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight leading-tight">
-                                    {service.title}
-                                </h3>
-                                {service.link && (
-                                    <div className="mt-8 hidden md:block">
-                                        <button className="neon-border  neon-text inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
-                                            {service.link}
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Description */}
-                            <div className="md:col-span-8 lg:col-span-7 flex flex-col">
-                                <p className="text-base md:text-lg lg:text-xl text-white/70 leading-relaxed max-w-[800px]">
-                                    {service.description}
-                                </p>
-                                {service.link && (
-                                    <div className="mt-6 block md:hidden">
-                                        <button className="neon-border  neon-text inline-flex items-center px-4 py-2 border border-white/20 rounded-full text-xs font-semibold text-white uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
-                                            {service.link}
-                                        </button>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Hover Image Reveal Container */}
-                            <AnimatePresence>
-                                {hoveredIndex === index && (
+                <div className="space-y-24 md:space-y-0">
+                    {services.map((service, index) => {
+                        const isEven = index % 2 === 0;
+                        return (
+                            <div key={service.id} className="relative md:flex md:items-center md:justify-between py-12">
+                                {/* Timeline Node */}
+                                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:block">
                                     <motion.div 
-                                        className="absolute right-0 md:right-8 top-1/2 -translate-y-1/2 w-[18rem] h-[12rem] md:w-[20rem] md:h-[13rem] z-20 pointer-events-none hidden md:block"
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        {/* Yellow Background Slide */}
-                                        <motion.div 
-                                            className="absolute inset-0 bg-brand-yellow"
-                                            initial={{ clipPath: "inset(0 100% 0 0)" }}
-                                            animate={{ clipPath: "inset(0 30% 0 0)" }}
-                                            exit={{ clipPath: "inset(0 100% 0 0)" }}
-                                            transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1] }} 
-                                        />
-                                        
-                                        {/* Image Container sliding over the yellow */}
-                                        <motion.div
-                                            className="absolute inset-0 right-3 overflow-hidden"
-                                            initial={{ clipPath: "inset(0 100% 0 0)" }}
-                                            animate={{ clipPath: "inset(0 0% 0 0)" }}
-                                            exit={{ clipPath: "inset(0 100% 0 0)" }}
-                                            transition={{ duration: 0.5, ease: [0.77, 0, 0.175, 1], delay: 0.1 }}
-                                        >
-                                            <motion.img 
-                                                src={service.image} 
-                                                alt={service.title}
-                                                className="w-full h-full object-cover"
-                                                initial={{ scale: 1.2 }}
-                                                animate={{ scale: 1 }}
-                                                exit={{ scale: 1.2 }}
-                                                transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
-                                            />
-                                        </motion.div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </div>
-                    ))}
-                </div>
+                                        initial={{ scale: 0 }}
+                                        whileInView={{ scale: 1 }}
+                                        transition={{ duration: 0.4, delay: 0.2 }}
+                                        viewport={{ once: true }}
+                                        style={{ backgroundColor: service.color, boxShadow: `0 0 15px ${service.color}` }}
+                                        className="w-5 h-5 rounded-full border-4 border-black box-content" 
+                                    />
+                                </div>
 
+                                {/* Content Layout */}
+                                <div className="flex flex-col md:flex-row w-full items-center">
+                                    {/* Left Side: Card or Image */}
+                                    <div className={`w-full md:w-[45%] ${isEven ? 'order-1' : 'md:order-3'}`}>
+                                        <ServiceCard service={service} side={isEven ? 'left' : 'right'} />
+                                    </div>
+
+                                    {/* Middle Spacer for Timeline */}
+                                    <div className="hidden md:block w-[10%] order-2" />
+
+                                    {/* Right Side: Image or Card */}
+                                    <div className={`w-full md:w-[45%] mt-8 md:mt-0 ${isEven ? 'md:order-3' : 'order-1'}`}>
+                                        <ServiceImage src={service.image} alt={service.title} />
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );
 };
 
+const ServiceCard = ({ service, side }) => (
+    <motion.div
+        initial={{ opacity: 0, x: side === 'left' ? -50 : 50 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative group p-8 rounded-3xl bg-white/[0.03] border border-white/10 transition-all duration-500 overflow-hidden"
+        style={{ '--hover-color': service.color }}
+    >
+        {/* Hover Border Effect */}
+        <div 
+            className="absolute inset-0 border border-transparent group-hover:border-[var(--hover-color)] transition-colors duration-500 rounded-3xl opacity-30 pointer-events-none" 
+        />
+
+        {/* Background Number */}
+        <div className="absolute top-4 right-8 text-8xl font-bold text-white/[0.03] select-none pointer-events-none group-hover:text-white/[0.05] transition-colors duration-500">
+            {service.id}
+        </div>
+
+        {/* Icon Box */}
+        <div 
+            className="inline-flex p-3 rounded-xl text-white mb-6 gold-bg"
+            // style={{ 
+            //     background: `linear-gradient(135deg, ${service.color}, #000)`,
+            //     boxShadow: `0 8px 20px ${service.shadow}`
+            // }}
+        >
+            {service.icon}
+        </div>
+
+        <h3 
+            className="text-2xl md:text-3xl font-bold mb-4 transition-colors duration-300"
+            style={{ color: 'white' }}
+        >
+            <span className="gold-text transition-colors duration-300">
+                {service.title}
+            </span>
+        </h3>
+        
+        <p className="text-white/60 leading-relaxed text-lg">
+            {service.description}
+        </p>
+
+        {/* Subtle Bottom Accent Glow */}
+        <div 
+            className="absolute bottom-0 left-0 right-0 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{ background: `linear-gradient(90deg, transparent, ${service.color}, transparent)` }}
+        />
+    </motion.div>
+);
+
+const ServiceImage = ({ src, alt }) => (
+    <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+        className="relative aspect-[16/10] rounded-3xl overflow-hidden group shadow-2xl"
+    >
+        <img 
+            src={src} 
+            alt={alt} 
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+        />
+        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
+    </motion.div>
+);
+
 export default OurServices;
+

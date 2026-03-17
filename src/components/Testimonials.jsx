@@ -262,7 +262,7 @@ const Testimonials = () => {
 
                       {/* Right Panel - Quote */}
                       <div className="md:col-span-8 lg:col-span-8 p-6 md:p-8 lg:p-12 flex flex-col justify-center relative">
-                         <div className="text-[#C1FF00] text-6xl font-serif mb-4 leading-none font-bold drop-shadow-[0_0_12px_rgba(193,255,0,0.5)]">"</div>
+                         <div className="gold-text text-6xl font-serif mb-4 leading-none font-bold ">"</div>
                          <p className="text-2xl md:text-3xl lg:text-[2rem] font-medium leading-[1.3] tracking-tight mb-12 max-w-3xl text-white/90 min-h-[320px] sm:min-h-[240px] md:min-h-[280px] lg:min-h-[240px]">
                            {testimonials[currentIndex].quote}
                          </p>
@@ -298,7 +298,7 @@ const Testimonials = () => {
                 return (
                   <div key={idx} className={`p-6 md:p-8 lg:p-12 border-b md:border-b-0 ${idx < 2 ? '' : ''} border-white/10 flex flex-col justify-center`}>
                      {stat.logo}
-                     <div className={`text-4xl md:text-5xl font-bold tracking-tighter mb-2 transition-colors duration-300 ${isCurrent ? 'text-white' : 'text-white/60'}`}>
+                     <div className={`text-4xl md:text-5xl font-bold tracking-tighter mb-2 transition-colors duration-300 ${isCurrent ? 'gold-text' : 'text-white/60'}`}>
                         {stat.value}
                      </div>
                      <div className="text-sm text-white/50">{stat.label}</div>
@@ -318,7 +318,7 @@ const Testimonials = () => {
               </div>
               
               <div className="flex gap-4 mb-6 relative flex-1">
-                <div className="text-[#C1FF00] font-serif text-3xl font-bold mt-1 leading-none drop-shadow-[0_0_8px_rgba(193,255,0,0.4)]">"</div>
+                <div className="gold-text font-serif text-3xl font-bold mt-1 leading-none drop-shadow-[0_0_8px_rgba(193,255,0,0.4)]">"</div>
                 <p className="text-white/80 text-base md:text-sm lg:text-base leading-relaxed tracking-wide">
                   {card.quote}
                 </p>
@@ -330,7 +330,7 @@ const Testimonials = () => {
                 </a>
               </div>
               
-              <div className="grid grid-cols-2 border-t border-white/10 pt-6 pb-6 mt-auto">
+              <div className="gold-text grid grid-cols-2 border-t border-white/10 pt-6 pb-6 mt-auto">
                 <div className="border-r border-white/10 pr-4">
                   <div className="text-3xl lg:text-4xl font-bold text-white mb-2">{card.stats[0].value}</div>
                   <div className="text-[11px] lg:text-xs text-white/50 font-medium">{card.stats[0].label}</div>

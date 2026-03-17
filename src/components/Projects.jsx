@@ -51,7 +51,7 @@ const Projects = () => {
         {/* Top Header Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 shrink-0 border-b border-white/10">
           <div className="md:col-span-4 lg:col-span-3 p-6 md:p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10">
-            <span className="neon-text text-sm font-bold tracking-wide block">
+            <span className="gold-text text-sm font-bold tracking-wide block">
               [04] Projects
             </span>
           </div>
@@ -68,7 +68,7 @@ const Projects = () => {
             </div>
 
             <div className="lg:absolute lg:right-12 lg:top-12 flex items-start">
-              <button className="neon-text flex items-center gap-2 text-sm font-bold tracking-wide hover:opacity-70 transition-opacity">
+              <button className="gold-text flex items-center gap-2 text-sm font-bold tracking-wide hover:opacity-70 transition-opacity">
                 [13] All Capital Raising Projects <ArrowUpRight className="w-4 h-4 text-[#C1FF00]" />
               </button>
             </div>
@@ -90,7 +90,7 @@ const Projects = () => {
                 className="flex flex-col h-full"
               >
                 <div className="flex-1 p-6 md:p-8 lg:p-12">
-                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 neon-text">
+                  <h3 className="text-3xl md:text-4xl font-bold tracking-tighter mb-4 gold-text">
                     {projects[currentIndex].title}
                   </h3>
                   <p className="text-white/70 text-sm md:text-base leading-relaxed mb-12 max-w-md">
@@ -119,11 +119,11 @@ const Projects = () => {
 
                     <div className="grid grid-cols-2 py-8 border-b border-white/10 gap-8">
                       <div>
-                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap neon-text">{projects[currentIndex].stat1.value}</div>
+                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap gold-text">{projects[currentIndex].stat1.value}</div>
                         <div className="text-xs text-white/50">{projects[currentIndex].stat1.label}</div>
                       </div>
                       <div>
-                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap neon-text">{projects[currentIndex].stat2.value}</div>
+                        <div className="text-4xl md:text-5xl font-bold tracking-tighter mb-2 whitespace-nowrap gold-text">{projects[currentIndex].stat2.value}</div>
                         <div className="text-xs text-white/50">{projects[currentIndex].stat2.label}</div>
                       </div>
                     </div>
@@ -133,7 +133,7 @@ const Projects = () => {
             </AnimatePresence>
 
             <div className="mt-8">
-              <button className="neon-text border border-brand-yellow text-xs font-bold tracking-wider uppercase py-3 px-8 w-full">
+              <button className="gold-bg cursor-pointer  text-xs font-bold tracking-wider uppercase py-3 px-8 w-full">
                 VIEW CASE STUDY
               </button>
             </div>

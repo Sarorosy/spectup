@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { DollarSign, Building2, Link as LinkIcon, Linkedin, Calendar, ArrowUpRight, ChevronUp } from "lucide-react";
-import heroVideo from "../assets/herobg.mp4";
 import niclasImg from "../assets/jigar.jpeg";
+import Silk from "./Silk";
 
 export default function Hero() {
     const services = [
@@ -24,16 +24,10 @@ export default function Hero() {
 
     return (
         <section className="relative w-full min-h-screen overflow-hidden bg-black text-white flex flex-col">
-            {/* Background Video */}
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 h-full w-full object-cover opacity-60"
-            >
-                <source src={heroVideo} type="video/mp4" />
-            </video>
+            {/* Background */}
+            <div className="absolute inset-0 opacity-60">
+                <Silk />
+            </div>
 
             {/* Main Content */}
             <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-8 pt-28 md:pt-32 pb-10 flex flex-col flex-1 justify-between">
@@ -66,7 +60,7 @@ export default function Hero() {
                                 >
 
                                     <div className="flex items-center gap-3">
-                                        <div className="p-2 rounded-md border border-brand-yellow neon-border">
+                                        <div className="p-2 rounded-md border-2 border-brand-yellow neon-border ">
                                             {service.icon}
                                         </div>
                                         <h3 className="text-lg font-bold tracking-tight">
@@ -117,7 +111,7 @@ export default function Hero() {
                         </div>
 
                         {/* Profile Info */}
-                        <div className="p-0 bg-[#0a0a0a]">
+                        <div className="px-0 pb-2 bg-[#0a0a0a]">
 
                             <h4 className="text-xl font-bold mb-1 text-center py-1">
                                 Jigar Patel
@@ -134,7 +128,7 @@ export default function Hero() {
                                 <ArrowUpRight size={16} className="text-white/40" />
                             </div>
 
-                            <button className="w-full neon-button py-4 flex items-center justify-between px-6 font-bold group">
+                            <button className="w-full goldbtn mx-auto  py-4 flex items-center justify-between px-6 font-bold group">
                                 <span>Request Call</span>
                                 <Calendar size={18} className="transition-transform group-hover:translate-x-1" />
                             </button>
@@ -146,11 +140,11 @@ export default function Hero() {
             </div>
 
             {/* Bottom Arrow */}
-            <div className="hidden md:block absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[1440px] px-6 md:px-8 pointer-events-none z-20">
+            {/* <div className="hidden md:block absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full max-w-[1440px] px-6 md:px-8 pointer-events-none z-20">
                 <div className="bg-brand-yellow p-3 rounded-sm shadow-2xl cursor-pointer hover:scale-110 transition-transform w-fit pointer-events-auto neon-border mx-auto lg:mx-0">
                     <ChevronUp className="text-black stroke-[3]" size={20} />
                 </div>
-            </div>
+            </div> */}
 
             {/* Background Text */}
             <div className="relative w-full mx-auto overflow-hidden pointer-events-none select-none pb-4">
